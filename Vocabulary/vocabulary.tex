@@ -1,0 +1,340 @@
+\documentclass[12pt]{book}
+
+\usepackage[acronym]{glossaries}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{systeme}
+\usepackage{algorithm,algpseudocode}
+\usepackage{afterpage}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage{scrextend}
+\usepackage{tcolorbox}
+\usepackage{polynom}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{russian}
+\setmainfont{FreeSerif}         % or any font that has Cyrillic glyphs
+\newfontfamily\cyrillicfont{FreeSerif}
+
+\pagestyle{plain}
+
+\newcommand{\example}[1]{
+    \begin{addmargin}[1em]{1em}
+    \begin{tcolorbox}
+    #1
+    \end{tcolorbox}
+    \end{addmargin}
+}
+
+\newcommand{\words}[2]{
+    \renewcommand\chaptername{}
+    \renewcommand\thechapter{}
+    \chapter{#1. Words}
+    \renewcommand\thechapter{#1}
+}
+
+\newcommand{\code}[1]{
+    {\color{blue}\texttt{#1}}
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% This `if` statement stands here just to comment out 
+% examples of figure and listing}.
+\iffalse
+% Example of figure}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0}.5]{Resources/Lecture_2/co_np}.png}
+\caption{Co-NP problems}
+\label{fig:co_np}
+\end{figure}
+
+% Example of listing}.
+\begin{lstlisting}[
+    language=Verilog,
+    caption=SystemVerilog packed/unpacked arrays,
+    columns=flexible,
+    basicstyle={\footnotesize\ttfamily},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    tabsize=4
+]
+bit [3:0] data; // packed array
+logic queue [3:0]; // unpacked array
+\end{lstlisting}
+
+% Example of table}.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    & this entry & mirror entry \\
+    \hline
+    distance to the closest cluster & 10 & 6 \\
+    \hline
+    distance to the second closest cluster & 12 & 8 \\
+    \hline
+\end{tabular}
+\end{center}
+\fi
+
+
+
+\begin{document}
+
+\words{1}{All words}
+\begin{itemize}
+    \item \textbf{Štěně} -- \textrussian{щенок}.
+    \item \textbf{Cihla} -- \textrussian{кирпич}.
+    \item \textbf{Zataženo} -- \textrussian{пасмурно}.
+    \item \textbf{Rušno} -- \textrussian{шумно, оживленно, людно}.
+    \item \textbf{Sourozenec} -- \textrussian{sibling}.
+    \item \textbf{Spolužák} -- \textrussian{одноклассник}.
+    \item \textbf{Smát} -- \textrussian{смеяться}.
+    \item \textbf{Snažit se} -- \textrussian{стремиться}.
+    \item \textbf{Chovat se} -- \textrussian{вести себя}.
+    \item \textbf{Hubnout} -- \textrussian{худеть}.
+    \item \textbf{Chystat se} -- \textrussian{готовиться}.
+    \item \textbf{Obdržet} -- \textrussian{получить}.
+    \item \textbf{Odstín} -- \textrussian{оттенок}.
+    \item \textbf{Dřez} -- \textrussian{раковина}.
+    \item \textbf{Skřín'} -- \textrussian{шкаф}.
+    \item \textbf{Nábytek} -- \textrussian{мебель}.
+    \item \textbf{Pohovka} -- \textrussian{диван}.
+    \item \textbf{Nádobí} -- \textrussian{посуда}.
+    \item \textbf{Socha} -- \textrussian{статуя}.
+    \item \textbf{Chystat} -- \textrussian{готовить}.
+    \item \textbf{Chytám} -- \textrussian{хватать}.
+    \item \textbf{Stěžovat si} -- \textrussian{жаловаться}.
+    \item \textbf{Žárlit} -- \textrussian{ревновать}.
+    \item \textbf{Polštář} -- \textrussian{подушка}.
+    \item \textbf{Tužka} -- \textrussian{карандаш}.
+    \item \textbf{Chytát} -- \textrussian{хватать}.
+    \item \textbf{Všímat si} -- \textrussian{замечать}.
+    \item \textbf{Názor} -- \textrussian{взгляд, мнение}.
+    \item \textbf{Návrh} -- \textrussian{проект, предложение}.
+    \item \textbf{Přítomný} -- \textrussian{настоящий, присутствующий}.
+    \item \textbf{Prohlížet} -- \textrussian{осматривать}.
+    \item \textbf{Všímat si} -- \textrussian{обращать внимание}.
+    \item \textbf{Rozhodně} -- \textrussian{несомненно, решительно, безусловно}.
+    \item \textbf{Avšak} -- \textrussian{однако, впрочем}.
+    \item \textbf{Aby} -- \textrussian{чтобы}.
+    \item \textbf{Přesto} -- \textrussian{несмотря на то, вопреки тому}.
+    \item \textbf{Podmínka} -- \textrussian{условие}.
+    \item \textbf{Zed'} -- \textrussian{стена}.
+    \item \textbf{Táhnout} -- \textrussian{тянуть, тащить}.
+    \item \textbf{Podmět} -- \textrussian{подлежащее, субъект}.
+    \item \textbf{Důraz} -- \textrussian{ударение, акцент}.
+    \item \textbf{Pocházet} -- \textrussian{происходить}.
+    \item \textbf{Kopec} -- \textrussian{холм}.
+    \item \textbf{Tábor} -- \textrussian{лагерь}.
+    \item \textbf{Třást se} -- \textrussian{трястись, дрожать}.
+    \item \textbf{Zařídit} -- \textrussian{решить}.
+    \item \textbf{Přednášet} -- \textrussian{преподавать}.
+    \item \textbf{Poradce} -- \textrussian{советник}.
+    \item \textbf{Obec} -- \textrussian{населенный пункт, село, муниципалитет}.
+    \item \textbf{Snoubenec} -- \textrussian{жених}.
+    \item \textbf{Pytel} -- \textrussian{мешок}.
+    \item \textbf{Rozmanitý} -- \textrussian{разнообразный}.
+    \item \textbf{Vhodny} -- \textrussian{удобный, подходящий}.
+    \item \textbf{Převážný} -- \textrussian{подавляющий, преобладающий}.
+    \item \textbf{Zabývat se} -- \textrussian{заниматься}.
+    \item \textbf{Během} -- \textrussian{в течении, во время}.
+    \item \textbf{Věnovat se} -- \textrussian{посвятить}.
+    \item \textbf{Žádný} -- \textrussian{никакой}. 
+    \item \textbf{Dospívání} -- \textrussian{созревание}.
+    \item \textbf{Silnice} -- \textrussian{шоссе, путь}.
+    \item \textbf{Pohádat se} -- \textrussian{поссориться, поспорить}.
+    \item \textbf{Zacházet} -- \textrussian{обращаться с чем-то, обходиться с кем-то}.
+    \item \textbf{Dosáhnout} -- \textrussian{достать, дотянуться}.
+    \item \textbf{Složit} -- \textrussian{сложить, сдать}.
+    \item \textbf{Přibuzny} -- \textrussian{родственники}.
+    \item \textbf{Pokyn} -- \textrussian{инструкция, указание}.
+    \item \textbf{Skutečný} -- \textrussian{настоящий, подлинный}.
+    \item \textbf{Požadovat} -- \textrussian{требовать, запрашивать}.
+    \item \textbf{Běžný} -- \textrussian{обыкновенный, обычный}.
+    \item \textbf{Prohlídka} -- \textrussian{осмотр}.
+    \item \textbf{Důl} -- \textrussian{шахта, рудник}.
+    \item \textbf{Přistupný} -- \textrussian{доступный}.
+    \item \textbf{Prozkoumat} -- \textrussian{расследовать}.
+    \item \textbf{Pomůcka} -- \textrussian{приспособление}.
+    \item \textbf{Příležitost} -- \textrussian{случай, возможность}.
+    \item \textbf{Zkušenost} -- \textrussian{опыт}.
+    \item \textbf{Jeskyně} -- \textrussian{пещера}.
+    \item \textbf{Kapela} -- \textrussian{оркестр}.
+    \item \textbf{Přehled} -- \textrussian{обзор}.
+    \item \textbf{Podmin'ovací} -- \textrussian{условный}.
+\end{itemize}
+
+\words{2}{Nepravidelná slovesa}
+\section{Prvni vid časování (-at, -át)}
+\begin{itemize}
+    \item \textbf{Mít} $\rightarrow$ Mám -- \textrussian{иметь}.
+\end{itemize}
+
+\section{Druhý vid časování (-it, -et, -ět)}
+\begin{itemize}
+    \item \textbf{Vědět} $\rightarrow$ Vím -- \textrussian{знать}.
+    \item \textbf{Povědět} $\rightarrow$ Povím -- \textrussian{рассказить}.
+    \item \textbf{Odpovědět} $\rightarrow$ Odpovím -- \textrussian{ответить}.
+    \item \textbf{Jíst} $\rightarrow$ Jím -- \textrussian{есть}.
+    \item \textbf{Sníst} $\rightarrow$ Sním -- \textrussian{съесть}.
+    \item \textbf{Spát} $\rightarrow$ Spím -- \textrussian{спать}.
+    \item \textbf{Stát} $\rightarrow$ Stojím -- \textrussian{стоять}.
+    \item \textbf{Bát se} $\rightarrow$ Bojím se -- \textrussian{бояться}.
+\end{itemize}
+
+\section{Třetí vid časování (-ovat, -out)}
+\subsection{-ovat}
+\begin{itemize}
+    \item \textbf{Dít se} $\rightarrow$ Ději si -- \textrussian{происходить, случаться}.
+    \item \textbf{Dobít} $\rightarrow$ Dobiji -- \textrussian{зарядить}.
+    \item \textbf{Chvět se} $\rightarrow$ Chvěji se -- \textrussian{дрожать}.
+    \item \textbf{Pít} $\rightarrow$ Piji -- \textrussian{пить}.
+    \item \textbf{Plout} $\rightarrow$ Pluji -- \textrussian{плевать}.
+    \item \textbf{Přát} $\rightarrow$ Přeji -- \textrussian{желать}.
+    \item \textbf{Blahopřát} $\rightarrow$ Blahopřeji -- \textrussian{поздравлять}.
+    \item \textbf{Mýt} $\rightarrow$ Myji -- \textrussian{мыть}.
+    \item \textbf{Nabít} $\rightarrow$ Nabiji -- \textrussian{приобрести}.
+    \item \textbf{Umýt} $\rightarrow$ Umyji -- \textrussian{умыть}.
+    \item \textbf{Smát se} $\rightarrow$ Směji se -- \textrussian{смеяться}.
+    \item \textbf{Hřát se} $\rightarrow$ Hřeji se -- \textrussian{согреваться}.
+    \item \textbf{Hrát} $\rightarrow$ Hraji -- \textrussian{играть}.
+    \item \textbf{Vyhrát} $\rightarrow$ Vyhraji -- \textrussian{выиграть}.
+    \item \textbf{Zahrát} $\rightarrow$ Zahraji -- \textrussian{сыграть}.
+    \item \textbf{Zout} $\rightarrow$ Zuji -- \textrussian{снять, разуть}.
+\end{itemize}
+
+\subsection{-out}
+\begin{itemize}
+    \item \textbf{Brát} $\rightarrow$ Beru -- \textrussian{брать}.
+    \item \textbf{Česat} $\rightarrow$ Češu -- \textrussian{чесать}.
+    \item \textbf{Číst} $\rightarrow$ Čtu -- \textrussian{читать}.
+    \item \textbf{Dojít} $\rightarrow$ Dojdu -- \textrussian{дойти}.
+    \item \textbf{Chápat} $\rightarrow$ Chápu -- \textrussian{понимать}.
+    \item \textbf{Chtít} $\rightarrow$ Chci -- \textrussian{хотеть}.
+    \item \textbf{Jet} $\rightarrow$ Jedu -- \textrussian{ехать}.
+    \item \textbf{Jít} $\rightarrow$ Jdu -- \textrussian{идти}.
+    \item \textbf{Krást} $\rightarrow$ Kradu -- \textrussian{красть}.
+    \item \textbf{Mást} $\rightarrow$ Matu -- \textrussian{путать}.
+    \item \textbf{Mazat} $\rightarrow$ Mažu -- \textrussian{мазать}.
+    \item \textbf{Moct} $\rightarrow$ Můžu -- \textrussian{мочь}.
+    \item \textbf{Nést} $\rightarrow$ Nesu -- \textrussian{нести}.
+    \item \textbf{Kvést} $\rightarrow$ Kvetu -- \textrussian{цвести}.
+    \item \textbf{Obléct} $\rightarrow$ Obleču -- \textrussian{надеть}.
+    \item \textbf{Péct} $\rightarrow$ Peču -- \textrussian{печь}.
+    \item \textbf{Plakat} $\rightarrow$ Pláču -- \textrussian{плакать}.
+    \item \textbf{Plavat} $\rightarrow$ Plavu -- \textrussian{плавать}.
+    \item \textbf{Plést} $\rightarrow$ Pletu -- \textrussian{плести}.
+    \item \textbf{Počít} $\rightarrow$ Počnu -- \textrussian{начать, зачать}.
+    \item \textbf{Podepsat} $\rightarrow$ Podepíšu -- \textrussian{подписать}.
+    \item \textbf{Pomoct} $\rightarrow$ Pomůžu -- \textrussian{помочь}.
+    \item \textbf{Poslat} $\rightarrow$ Pošlu -- \textrussian{послать}.
+    \item \textbf{Pozvat} $\rightarrow$ Pozvu -- \textrussian{позвать}.
+    \item \textbf{Psát} $\rightarrow$ Píšu -- \textrussian{писать}.
+    \item \textbf{Prát} $\rightarrow$ Peru -- \textrussian{стирать}.
+    \item \textbf{Přestat} $\rightarrow$ Přestanu -- \textrussian{перестать}.
+    \item \textbf{Převléct} $\rightarrow$ Převleču -- \textrussian{переодеть, сменить}.
+    \item \textbf{Růst} $\rightarrow$ Rostu -- \textrussian{рост}.
+    \item \textbf{Říct} $\rightarrow$ Řeknu -- \textrussian{говорить}.
+    \item \textbf{Sehnat} $\rightarrow$ Seženu -- \textrussian{добыть, достать}.
+    \item \textbf{Smazat} $\rightarrow$ Smažu -- \textrussian{пожарть}.
+    \item \textbf{Stát se} $\rightarrow$ Stanu se -- \textrussian{становиться}.
+    \item \textbf{Svléct} $\rightarrow$ Svleču -- \textrussian{снять, стащить}.
+    \item \textbf{Třást} $\rightarrow$ Třesu -- \textrussian{трясти}.
+    \item \textbf{Umřít} $\rightarrow$ Umřu -- \textrussian{умереть}.
+    \item \textbf{Ukázat} $\rightarrow$ Ukážu -- \textrussian{указать}.
+    \item \textbf{Vést} $\rightarrow$ Vedu -- \textrussian{вести}.
+    \item \textbf{Vézt} $\rightarrow$ Vezu -- \textrussian{везти}.
+    \item \textbf{Vstát} $\rightarrow$ Vstanu -- \textrussian{встать}.
+    \item \textbf{Vybrat} $\rightarrow$ Vyberu -- \textrussian{выбирать}.
+    \item \textbf{Vyprat} $\rightarrow$ Vyperu -- \textrussian{выстирать, постирать}.
+    \item \textbf{Vzít} $\rightarrow$ Vezmu -- \textrussian{взять}.
+    \item \textbf{Zakázat} $\rightarrow$ Zakážu -- \textrussian{запретить}.
+    \item \textbf{Zavřít} $\rightarrow$ Zavřu -- \textrussian{закрыть}.
+    \item \textbf{Zemřít} $\rightarrow$ Zemřu -- \textrussian{умереть}.
+    \item \textbf{Zůstat} $\rightarrow$ Zůstanu -- \textrussian{остаться}.
+    \item \textbf{Zvát} $\rightarrow$ Zvu -- \textrussian{звать}.
+\end{itemize}
+
+
+\words{3}{Conjugation of nouns (\textrussian{спряжение по падежам})}
+\begin{itemize}
+    \item \textbf{Ptát se (2. pad: koho? čeho?)}.
+    \item \textbf{Vidět (4. pad: koho? co?)}.
+    \item \textbf{Dotýkát se (2. pad: koho? čeho?)}.
+    \item \textbf{Sekát (4. pad: koho? co?)}.
+    \item \textbf{Poslouchát (4. pad: koho? co?)}.
+    \item \textbf{Opravovat (4. pad: koho? co?)}.
+    \item \textbf{Chytát (4. pad: koho? co?)}.
+    \item \textbf{Stěžovat si (4. pad: koho? co?)}.
+    \item \textbf{Vařít (4. pad: koho? co?)}.
+    \item \textbf{Vážít si (4. pad: koho? co?)}.
+    \item \textbf{Opravovat (4. pad: koho? co?)}.
+    \item \textbf{Kupovat (4. pad: koho? co?)}.
+    \item \textbf{Stydět se (4. pad: koho? co?)}.
+    \item \textbf{Užívát si (4. pad: koho? co?)}.
+    \item \textbf{Nakupovat (4. pad: koho? co?)}.
+    \item \textbf{Pamatovat si (4. pad: koho? co?)}.
+    \item \textbf{Zeptát se (2. pad: koho? čeho?)}.
+    \item \textbf{Žárlit (2. pad: koho? čeho?)}.
+    \item \textbf{Najít (2. pad: koho? čeho?)}.
+    \item \textbf{Číst (4. pad: koho? co?)}.
+\end{itemize}
+
+Cases (\textrussian{падежи}):
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    2. pad (koho? čeho?) & 3. pad & 4. pad (koho? co?) & 5. pad & 6. pad \\
+    \hline
+    Ptát se (\textrussian{спрашивать}) & Rozumět (\textrussian{понимать}) & Vidět (\textrussian{видеть}) & & \\
+    \hline
+    Dotýkát se (\textrussian{дотрагиваться}) & Krást (\textrussian{красть}) & Sekát (\textrussian{рубить, сечь}) & & \\
+    \hline
+    Zeptát se (\textrussian{спросить}) & & Poslouchát (\textrussian{послушать}) & & \\
+    \hline
+    Vážít si (\textrussian{уважать, ценить}) & & Opravovat (\textrussian{исправлять}) & & \\
+    \hline
+    Všímat si (\textrussian{замечать}) & & Chytát (\textrussian{хватать}) & & \\
+    \hline
+    Bát se (\textrussian{бояться}) & & Stěžovat si (\textrussian{жаловаться}) & & \\
+    \hline
+    & & Vařít (\textrussian{варить}) & & \\
+    \hline
+    & & Kupovat (\textrussian{покупать}) & & \\
+    \hline
+    & & Stydět se (\textrussian{стыдить}) & & \\
+    \hline
+    & & Užívát si (\textrussian{использовать, употреблять}) & & \\
+    \hline
+    & & Nakupovat (\textrussian{покупать}) & & \\
+    \hline
+    & & Pamatovat si (\textrussian{помнить, запоминать}) & & \\
+    \hline
+    & & Číst (\textrussian{читать}) & & \\
+    \hline
+    & & Bolet (\textrussian{болеть}) & & \\
+    \hline
+    & & Svědět (\textrussian{чесаться}) & & \\
+    \hline
+    & & Žárlit (\textrussian{ревновать}) & & \\
+    \hline
+    & & Najít (\textrussian{найти}) & & \\
+    \hline
+\end{tabular}
+\end{center}
+
+
+
+\end{document}

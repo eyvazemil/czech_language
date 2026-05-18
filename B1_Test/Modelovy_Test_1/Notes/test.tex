@@ -1,0 +1,157 @@
+\documentclass[12pt]{book}
+
+\usepackage[acronym]{glossaries}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{systeme}
+\usepackage{algorithm,algpseudocode}
+\usepackage{afterpage}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage{scrextend}
+\usepackage{tcolorbox}
+\usepackage{polynom}
+
+\pagestyle{plain}
+
+\newcommand{\example}[1]{
+    \begin{addmargin}[1em]{1em}
+    \begin{tcolorbox}
+    #1
+    \end{tcolorbox}
+    \end{addmargin}
+}
+
+\newcommand{\part}[2]{
+    \renewcommand\chaptername{}
+    \renewcommand\thechapter{}
+    \chapter{#2}
+    \renewcommand\thechapter{#1}
+}
+
+\newcommand{\code}[1]{
+    {\color{blue}\texttt{#1}}
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% This `if` statement stands here just to comment out 
+% examples of figure and listing.
+\iffalse
+% Example of figure.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Resources/Lecture_2/co_np.png}
+\caption{Co-NP problems}
+\label{fig:co_np}
+\end{figure}
+
+% Example of listing.
+\begin{lstlisting}[
+    language=Verilog,
+    caption=SystemVerilog packed/unpacked arrays,
+    columns=flexible,
+    basicstyle={\footnotesize\ttfamily},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    tabsize=4
+]
+bit [3:0] data; // packed array
+logic queue [3:0]; // unpacked array
+\end{lstlisting}
+
+% Example of table.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    & this entry & mirror entry \\
+    \hline
+    distance to the closest cluster & 10 & 6 \\
+    \hline
+    distance to the second closest cluster & 12 & 8 \\
+    \hline
+\end{tabular}
+\end{center}
+\fi
+
+
+
+\begin{document}
+
+\part{Čtení s porozuměním}
+\section{Úloha 1}
+Poslední zářijový víkend (1.pad, jednotne, hrad) bude patřit oslavám (3. pad, množné, žena)
+svatého Václava (2. pad, jednonte, pán), patrona (2. pad, jednotne, pán) české země (2. pad, jednotne, růže), 
+pivovarníků (2. pad, množné, pán) a vinařů (2. pad, množné, pán). 
+Svatováclavské slavnosti (1. pad, množné, kost) nabídnou od pátku (2. pad, jednotne, hrad) 26. do 
+neděle (2. pad, jednotne, hrad) 28. září (2. pad, jednotne, hrad) více než tři desítky 
+zážitků (2. pad, jednotne, hrad).
+
+\textbf{Speciální exkurze vás zavedou na běžně nepřístupná místa}
+V sobotu (4. pad, jednotne, žena) večer (4. pad, jednotne, hrad) vyrazte na Svatováclavskou 
+noc (4. pad, jednotne, kost) otevřených muzeí (2. pad, množné, muzeum) a galerií (2. pad, množné, muzeum). 
+Vstup (1. pad, jednotne, muzeum) je zdarma! Mezi 20. a 24. hodinou (7. pad, jednonte, žena) si můžete 
+prohlédnout třeba Městské divadlo (4. pad, jednotne, město), synagogu (2. pad, jednotne, žena), 
+regionální muzeum (1. pad, jednotne, muzeum) nebo Museum Fotoateliér Seidel, které přichystalo 
+program (4. pad, jednotne, hrad) také na sobotní a nedělní den (4. pad, jednotne, hrad). Při takzvaném 
+Svatováclavském fotografování (6. pad, jednotne, stavení) zažijete atmosféru (4. pad, jednotne, žena) 
+počátku (2. pad, jednotne, hrad) 20. století (2. pad, jednotne, stavení) a získáte historickou 
+fotografii (2. pad, jednotne, růže) do svého rodinného alba (2. pad, jednotne, album). Vyrazit si pro ni 
+můžete vždy mezi 9. a 15. hodinou (7. pad, jednotne, žena). V neděli (4. pad, jednotne, růže) si s 
+průvodcem (7. pad, jednotne, soudce) můžete projít celý Český Krumlov (4. pad, jednotne, hrad). 
+Vyráží se ve 14:30 z náměstí Svornosti (2. pad, jednotne, stavení). Prohlídka (1. pad, jednotne, žena) 
+potrvá přibližně 90 minut (2. pad, množné, žena) a vstupenky (1. pad, množné, žena) zdarma jsou dostupné 
+v Infocentru (6. pad, jednotne, centrum). Celý víkend se konají prohlídky (4. pad, množné, žena) 
+zámku (2. pad, jednotne, hrad) (začátky (1. pad, množné, hrad) v 10:00, 11:00, 13:00, 14:00, 15:00, 16:00 
+hodin (2. pad, množné, žena)). Vstupné (1. pad, jednotne, moře) pro dospělou osobu (4. pad, jednotne, žena) 
+je 150 Kč, návštěvníci (1. pad, množné, pán) mladší 18 let a senioři (1. pad, množné, pán) mají 
+vstup (4. pad, jednotne, hrad) zdarma. Vstupenky (1. pad, množné, žena) se prodávají v 
+pokladně (6. pad, jednotne, žena) na nádvoří (1. pad, jednotne, stavení) zámku (2. pad, jednotne, hrad).
+
+\textbf{Grafitový důl}
+V neděli (4. pad, jednotne, růže) se zpřístupní také podzemí (4. pad, jednotne, stavení) 
+grafitového dolu (2. pad, jednotne, hrad). Místo (2. pad, jednotne, město) můžete prozkoumat za jízdy 
+na důlním vláčku (6. pad, jednotne, hrad) s průvodci (7. pad, jednotne, soudce). Před 
+cestou (7. pad, jednotne, žena) vám (3. pad, množné, vy) zapůjčí ochranné pomůcky (4. pad, množné, žena), 
+hornický oděv (4. pad, jednotne, hrad) a obuv (4. pad, jednotne, kost), bez kterých vás na 
+prohlídku (4. pad, jednotne, žena) nepustí. Prohlídky (1. pad, množne, žena) začínají v 
+neděli (4. pad, jednotne, růže) ve 12, 13 a 14 hodin (2. pad, množné, žena) a trvají 80 
+minut (2. pad, množné, žena).
+
+\textbf{Letohrádek a zámecké sklepy}
+Netradiční podívanou (7. pad, jednotne, žena) nabídne v neděli (4. pad, jednotne, růže) 
+podzemí (6. pad, jednotne, stavení) letohrádku (2. pad, jednotne, hrad) Bellarie v zámecké 
+zahradě (6. pad, jednotne, žena). Od 10 do 14 hodin (2. pad, množné, žena) budete mít 
+příležitost (4. pad, jednotne, kost) nahlédnout do umělé jeskyně (2. pad, jednotne, růže). 
+V přízemí (6. pad, jednotne, stavení) letohrádku (2. pad, jednotne, hrad) vás čeká 
+prohlídka (1. pad, jednotne, žena) kuchyně (2. pad, jednotne, růže) a místnosti (2. pad, jednotne, kost) 
+s výtahem (7. pad, jednotne, hrad) na jídlo (4. pad, jednotne, město). Ve stejném 
+čase (6. pad, jednotne, hrad) budete moci vstoupit také do zámeckých 
+sklepů (2. pad, jednotne, hrad) na III. nádvoří (4. pad, jednotne, stavení). 
+Průvodci (1. pad, množné, soudce) budou vyrážet každých 30 minut, v podzemí (6. pad, jednotne, stavení) 
+se zdržíte asi hodinu (4. pad, jednotne, žena). A hned poté můžete za hudbou (7. pad, jednotne, žena), 
+a to do centra (2. pad, jednotne, centrum) na náměstí Svornosti (4. pad, jednotne, stavení).
+
+\textbf{Centrum města rozezní koncerty}
+Páteční úvod (1. pad, jednotne, hrad) hudebního festivalu (2. pad, jednotne, hrad) roztančí v 17:15 
+českokrumlovská swingová kapela (1.pad, jednotne, žena) Black Bottom se světovou a českou 
+klasikou (7. pad, jednotne, žena) počátku 20. století (2. pad, jednotne, stavení). Po nich v 19 
+hodin (2. pad, množne, žena) nastoupí česká rocková legenda (1. pad, jednotne, žena), 
+zpěvák (1. pad, jednotne, pán), skladatel (1. pad, jednotne, pán) a 
+klávesista (1. pad, jednotne, předseda) Roman Dragoun. České rockové a popové 
+hity (1. pad, množné, hrad) rozezní náměstí (4. pad, jednotne, stavení) 
+Svornosti (2. pad, jednotne, kost) v sobotu (4. pad, jednotne, žena) od 20:30, kdy vystoupí na 
+jednom pódiu (6. pad, jednotne, muzeum) mladá kapela (1. pad, jednotne, žena) z Českého Krumlova 
+Chlapi v sobě a úspěšný českokrumlovský dětský sbor (1. pad, jednotne, hrad) Medvíďata s českými 
+a moravskými lidovými písněmi (7. pad, množné, písen').
+
+
+
+\end{document}
